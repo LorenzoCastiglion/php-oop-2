@@ -18,12 +18,18 @@ function __construct(string $_title, string $_image, float $_price, Category $_c
 
 	
 	public function getSize(): string {
+       
 		return $this->size;
 	}
 
 	
 	public function setSize(string $size): self {
-		$this->size = $size;
+        if(strlen($size)){
+            $this->size = $size;
+        } else{
+            $this->size = 'virtuale';
+        }
+		
 		return $this;
 	}
 
@@ -33,7 +39,14 @@ function __construct(string $_title, string $_image, float $_price, Category $_c
 	}
 
 	public function setMaterial(array $material) {
-		$this->material = $material;
+
+        if(count($material)){
+            $this->material = $material;
+        } else{
+
+            $this->material = ["Immaterial"];
+        }
+		
 		return $this;
 	}
 }

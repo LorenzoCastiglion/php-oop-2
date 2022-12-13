@@ -18,7 +18,7 @@ $cat = new Category('gatto');
 $prod = new Product('cicci', 'crr.jpj', 9.8, $dog);
 
 
-$food = new Food('cicci', 'crr.jpj', 9.8, $dog, 4, ['carne', 'patate', 'banane'], '2022-12-11');
+$food = new Food('cicci', 'crr.jpj', 9.8, $dog, -3, ['carne', 'patate', 'banane'], '2022-12-11');
 var_dump($food);
 
 echo "<br>";

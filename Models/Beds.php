@@ -28,7 +28,12 @@ Class Beds extends Product{
 
 
 	public function setWhere(string $where): self {
-		$this->where = $where;
+        if(strlen($where)){
+            $this->where = $where;
+        }else{
+            $this->where = "NoWhere";
+        }
+		
 		return $this;
 	}
 
@@ -37,7 +42,14 @@ Class Beds extends Product{
 	}
 
 	public function setMaterial(array $material): self {
-		$this->material = $material;
+        if(count($material)){
+            $this->material = $material;
+        } else{
+
+            $this->material = ["Immaterial"];
+        }
+		
+	
 		return $this;
 	}
 
@@ -48,7 +60,12 @@ Class Beds extends Product{
 
 	
 	public function setSize(string $size): self {
-		$this->size = $size;
+        if(strlen($size)){
+            $this->size = $size;
+        } else{
+            $this->size = "too big for you";
+        }
+		
 		return $this;
 	}
 }

@@ -5,7 +5,7 @@ include_once __DIR__ . '/Product.php';
 class Food extends Product{
 
     
-    private string $weight;
+    private int $weight;
     
     private Array $ingredients;
     
@@ -38,12 +38,19 @@ class Food extends Product{
 		return $this;
 	}
 
-	public function getWeight(): string {
+	public function getWeight(): int {
 		return $this->weight;
 	}
 
-	public function setWeight(string $weight): self {
-		$this->weight = $weight;
+	public function setWeight(int $weight): self {
+
+        if($weight > 0){
+            $this->weight = $weight;
+        } else{
+            $this->weight = 0;
+        }
+
+	
 		return $this;
 	}
 
@@ -53,7 +60,14 @@ class Food extends Product{
 	}
 
 	public function setIngredients($ingredients){
-		$this->ingredients = $ingredients;
+        if(count($ingredients)){
+            $this->ingredients = $ingredients;
+        } else{
+
+            $this->ingredients = ["No food"];
+        }
+        
+		
 		return $this;
 	}
 }
