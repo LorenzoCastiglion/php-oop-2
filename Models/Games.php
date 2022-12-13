@@ -1,6 +1,6 @@
 <?php 
 
-
+include_once __DIR__ . '/Product.php';
 Class Games extends Product{
 
     private string $size;
