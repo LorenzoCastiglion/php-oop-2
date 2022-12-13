@@ -19,7 +19,13 @@ class Category{
 	}
 
 	public function setSpecies(string $species): self {
-		$this->species = $species;
+
+        if(strlen($species)){
+            $this->species = $species;
+        } else {
+            $this->species = 'Undiscovered';
+        }
+		
 		return $this;
 	}
 }

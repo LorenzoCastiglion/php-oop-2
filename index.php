@@ -8,6 +8,7 @@ include_once __DIR__ . '/Models/Games.php';
 include_once __DIR__ . '/Models/Beds.php';
 
 
+
 $dog = new Category('cane');
 $cat = new Category('gatto');
 
@@ -17,7 +18,7 @@ $cat = new Category('gatto');
 $prod = new Product('cicci', 'crr.jpj', 9.8, $dog);
 
 
-$food = new Food('cicci', 'crr.jpj', 9.8, $dog, '10/11?2023', 4, ['carne', 'patate', 'banane']);
+$food = new Food('cicci', 'crr.jpj', 9.8, $dog, 4, ['carne', 'patate', 'banane'], '2022-12-11');
 var_dump($food);
 
 echo "<br>";
@@ -32,3 +33,8 @@ var_dump($bed);
 
 
 ?>
+
+
+<body>
+    
+</body>

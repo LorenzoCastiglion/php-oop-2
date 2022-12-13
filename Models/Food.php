@@ -4,19 +4,19 @@ include_once __DIR__ . '/Product.php';
 
 class Food extends Product{
 
+    
+    private string $weight;
+    
+    private Array $ingredients;
+    
     private string $exp_date;
 
-    private string $weight;
-
-    private Array $ingredients;
-
-
-    function __construct(string $_title, string $_image, float $_price, Category $_category, string $exp_date, int $_weight, Array $_ingredients )
+    function __construct(string $_title, string $_image, float $_price, Category $_category, int $_weight, Array $_ingredients, string $exp_date = 'yyyy-mm-dd' )
     {
         parent::__construct( $_title, $_image, $_price,  $_category);
-        $this->setExp_date($exp_date);
         $this->setWeight($_weight);
         $this->setIngredients($_ingredients);
+        $this->setExp_date($exp_date);
     }
 
 
@@ -27,7 +27,14 @@ class Food extends Product{
 	}
 
 	public function setExp_date(string $exp_date): self {
-		$this->exp_date = $exp_date;
+       $date1 = new DateTime("now");
+       $date2 =  new DateTime($exp_date);
+        if( $date1 <= $date2){
+            $this->exp_date = $exp_date;
+        }else{
+            $this->exp_date = 'Scaduto';
+        }
+		
 		return $this;
 	}
 
