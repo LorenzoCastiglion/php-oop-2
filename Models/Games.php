@@ -27,7 +27,7 @@ function __construct(string $_title, string $_image, float $_price, Category $_c
         if(strlen($size)){
             $this->size = $size;
         } else{
-            $this->size = 'virtuale';
+           throw new Exception('Virtual');
         }
 		
 		return $this;

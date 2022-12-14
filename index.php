@@ -18,10 +18,12 @@ $cat = new Category('cats', 'cat.png');
 
 
 
-$food = new Food('ciccioli', 'dogfood1.jpg', 34.89, $dog, 45, ['manzo', 'patate', 'maiale', 'pollo'], '2022-12-11');
-$food1 = new Food('Miaonese', 'catfood.jpg', 12.99, $cat, 0.5, ['pesce', 'patate', 'riso', 'sale'], '2023-12-11');
-$food2 = new Food('Crocche', 'dogfood2.png', 43.89, $dog, 20, ['carote', 'patate', 'riso', 'sale', 'broccoli'], '2023-10-21');
-
+$food = new Food('ciccioli', 'dogfood1.jpg', 34.89, $dog,  ['manzo', 'patate', 'maiale', 'pollo'], '2022-12-11');
+$food->setWeight('50', 'kg');
+$food1 = new Food('Miaonese', 'catfood.jpg', 12.99, $cat,  ['pesce', 'patate', 'riso', 'sale'], '2023-12-11');
+$food1->setWeight('200', 'g');
+$food2 = new Food('Crocche', 'dogfood2.png', 43.89, $dog,  ['carote', 'patate', 'riso', 'sale', 'broccoli'], '2023-10-21');
+$food2->setWeight('10', 'kg');
 
 
 $game = new Games('osso di corda', 'corda.jpg', 12.30, $dog, 'small', ['stoffa', 'plastica']);
@@ -90,10 +92,12 @@ $bed = new Beds('lettino', 'letto.jpg', 25.90, $dog, 'esterno', ['seta', 'cotone
                                 <div class="col-6 d-flex align-content-center align-items-center justify-content-end">
                                     <p class="m-0 me-2"><?php echo $food->category->getSpecies()  ?></p>
                                     <img src="./img/<?php echo $food->category->getIcon() ?>" class="icona" alt="...">
+                                    
                                 </div>
                             </div>
 
                             <p class="card-text fw-bold"><?php echo $food->getPrice() . '€' ?></p>
+                            <p class="mb-0"><?php echo $food->getWeight()  ?></p>
                             <p class="card-text"><span>Ingredients: <br></span><small class="text-muted"><?php foreach (($food->getIngredients()) as $ingredients) echo $ingredients . ' ' ?></small></p>
                             <p class="card-text small"> <span>Data di scadenza: <br></span> <?php echo $food->getExp_date()  ?></p>
                             <button type="button" class="btn btn-primary">Add to chart</button>
@@ -112,6 +116,7 @@ $bed = new Beds('lettino', 'letto.jpg', 25.90, $dog, 'esterno', ['seta', 'cotone
                                 </div>
                             </div>
                             <p class="card-text fw-bold"><?php echo $food1->getPrice() . '€' ?></p>
+                            <p class="mb-0"><?php echo $food1->getWeight()  ?></p>
                             <p class="card-text"><span>Ingredients: <br></span><small class="text-muted"><?php foreach (($food1->getIngredients()) as $ingredients) echo $ingredients . ' ' ?></small></p>
                             <p class="card-text small"> <span>Data di scadenza: <br></span> <?php echo $food1->getExp_date()  ?></p>
                             <button type="button" class="btn btn-primary">Add to chart</button>
@@ -130,6 +135,7 @@ $bed = new Beds('lettino', 'letto.jpg', 25.90, $dog, 'esterno', ['seta', 'cotone
                                 </div>
                             </div>
                             <p class="card-text fw-bold"><?php echo $food2->getPrice() . '€' ?></p>
+                            <p class="mb-0"><?php echo $food2->getWeight()  ?></p>
                             <p class="card-text"><span>Ingredients: <br></span><small class="text-muted"><?php foreach (($food2->getIngredients()) as $ingredients) echo $ingredients . ' ' ?></small></p>
                             <p class="card-text small"> <span>Data di scadenza: <br></span> <?php echo $food2->getExp_date()  ?></p>
                             <button type="button" class="btn btn-primary">Add to chart</button>

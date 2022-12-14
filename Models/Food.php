@@ -1,20 +1,20 @@
 <?php
-
+require_once __DIR__ . './../traits/weight.php';
 include_once __DIR__ . '/Product.php';
 
 class Food extends Product{
 
+    use weight;
     
-    private int $weight;
     
     private Array $ingredients;
     
     private string $exp_date;
 
-    function __construct(string $_title, string $_image, float $_price, Category $_category, int $_weight, Array $_ingredients, string $exp_date = 'yyyy-mm-dd' )
+    function __construct(string $_title, string $_image, float $_price, Category $_category, Array $_ingredients, string $exp_date = 'yyyy-mm-dd' )
     {
         parent::__construct( $_title, $_image, $_price,  $_category);
-        $this->setWeight($_weight);
+      
         $this->setIngredients($_ingredients);
         $this->setExp_date($exp_date);
     }
@@ -38,21 +38,6 @@ class Food extends Product{
 		return $this;
 	}
 
-	public function getWeight(): int {
-		return $this->weight;
-	}
-
-	public function setWeight(int $weight): self {
-
-        if($weight > 0){
-            $this->weight = $weight;
-        } else{
-            $this->weight = 0;
-        }
-
-	
-		return $this;
-	}
 
 	
 	public function getIngredients() {
