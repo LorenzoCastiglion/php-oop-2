@@ -98,6 +98,7 @@ $bed = new Beds('lettino', 'letto.jpg', 25.90, $dog, 'esterno', ['seta', 'cotone
 
                             <p class="card-text fw-bold"><?php echo $food->getPrice() . '€' ?></p>
                             <p class="mb-0"><?php echo $food->getWeight()  ?></p>
+                            
                             <p class="card-text"><span>Ingredients: <br></span><small class="text-muted"><?php foreach (($food->getIngredients()) as $ingredients) echo $ingredients . ' ' ?></small></p>
                             <p class="card-text small"> <span>Data di scadenza: <br></span> <?php echo $food->getExp_date()  ?></p>
                             <button type="button" class="btn btn-primary">Add to chart</button>
